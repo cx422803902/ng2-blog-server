@@ -1,4 +1,4 @@
-package org.goiot.mybatis.jpa;
+package org.goiot.core.mybatis.jpa;
 
 import java.lang.annotation.*;
 

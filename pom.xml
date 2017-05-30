@@ -6,7 +6,7 @@
 
     <groupId>org.goiot</groupId>
     <artifactId>blog</artifactId>
-    <packaging>pom</packaging>
+    <packaging>war</packaging>
     <version>1.0-SNAPSHOT</version>
 
     <properties>
@@ -22,10 +22,19 @@
         <version.mybatis.spring>1.3.1</version.mybatis.spring>
 
         <version.slf4j>1.7.25</version.slf4j>
+        <version.logback>1.2.3</version.logback>
         <version.fastjson>1.2.32</version.fastjson>
     </properties>
 
     <dependencies>
+        <!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>3.1.0</version>
+            <scope>provided</scope>
+        </dependency>
+
         <!--spring framework start-->
         <dependency>
             <groupId>org.springframework</groupId>
@@ -89,6 +98,12 @@
             <artifactId>log4j-over-slf4j</artifactId>
             <version>${version.slf4j}</version>
         </dependency>
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>${version.logback}</version>
+        </dependency>
+
         <!--log framework end-->
 
         <dependency>
@@ -102,5 +117,31 @@
             <version>4.12</version>
         </dependency>
     </dependencies>
+
+    <build>
+        <finalName>ng2-blog-server</finalName>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>2.3.2</version>
+                    <configuration>
+                        <source>${maven.compiler.source}</source>
+                        <target>${maven.compiler.target}</target>
+                        <encoding>UTF-8</encoding>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-war-plugin</artifactId>
+                    <version>2.4</version>
+                    <configuration>
+                        <webXml>src/main/webapp/WEB-INF/web.xml</webXml>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
 
 </project>

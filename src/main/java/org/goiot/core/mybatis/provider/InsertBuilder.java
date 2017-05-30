@@ -1,8 +1,8 @@
-package org.goiot.mybatis.provider;
+package org.goiot.core.mybatis.provider;
 
 import org.apache.ibatis.jdbc.SQL;
-import org.goiot.mybatis.jpa.Column;
-import org.goiot.mybatis.jpa.Table;
+import org.goiot.core.mybatis.jpa.Column;
+import org.goiot.core.mybatis.jpa.Table;
 import org.springframework.util.Assert;
 
 import java.lang.reflect.Field;

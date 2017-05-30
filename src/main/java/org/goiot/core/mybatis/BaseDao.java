@@ -1,9 +1,7 @@
-package org.goiot.mybatis;
+package org.goiot.core.mybatis;
 
 import org.apache.ibatis.annotations.InsertProvider;
-import org.goiot.mybatis.provider.InsertBuilder;
-
-import java.io.Serializable;
+import org.goiot.core.mybatis.provider.InsertBuilder;
 
 /**
  * Created by chenxing on 2017/5/29.

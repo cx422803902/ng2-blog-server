@@ -1,7 +1,7 @@
 package org.goiot.entity;
 
-import org.goiot.mybatis.jpa.Column;
-import org.goiot.mybatis.jpa.Table;
+import org.goiot.core.mybatis.jpa.Column;
+import org.goiot.core.mybatis.jpa.Table;
 
 /**
  * Created by chenxing on 2017/5/29.
