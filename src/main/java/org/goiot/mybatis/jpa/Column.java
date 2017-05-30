@@ -1,4 +1,4 @@
-package org.goiot.mybatis;
+package org.goiot.mybatis.jpa;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.Target;
@@ -11,7 +11,7 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
  */
 @Target(FIELD)
 @Retention(RUNTIME)
-public @interface InsertColumn {
+public @interface Column {
     /**column name that be set when insert*/
     String name();
 

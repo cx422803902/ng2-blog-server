@@ -1,16 +1,16 @@
 package org.goiot.dao;
 
-import org.goiot.mybatis.InsertColumn;
-import org.goiot.mybatis.InsertTable;
+import org.goiot.mybatis.jpa.Column;
+import org.goiot.mybatis.jpa.Table;
 
 /**
  * Created by chenxing on 2017/5/29.
  */
-@InsertTable(name = "Test")
+@Table(name = "Test")
 public class TestEntity {
     private Long id;
 
-    @InsertColumn(name = "name")
+    @Column(name = "name")
     private String name;
 
     public Long getId() {

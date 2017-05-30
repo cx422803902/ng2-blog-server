@@ -1,4 +1,4 @@
-package org.goiot.mybatis;
+package org.goiot.mybatis.jpa;
 
 import java.lang.annotation.*;
 
@@ -10,7 +10,7 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
  */
 @Target(TYPE)
 @Retention(RUNTIME)
-public @interface InsertTable {
+public @interface Table {
     /**
      * table's name
      * @return

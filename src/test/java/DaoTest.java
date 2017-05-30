@@ -1,4 +1,5 @@
 import com.alibaba.fastjson.JSON;
+import org.apache.ibatis.session.SqlSessionFactory;
 import org.goiot.dao.TestDao;
 import org.goiot.dao.TestEntity;
 import org.junit.Test;
@@ -15,6 +16,8 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 public class DaoTest {
     @Autowired
     private TestDao testDao;
+    @Autowired
+    private SqlSessionFactory sqlSessionFactory;
 
     @Test
     public void testDao() {
@@ -24,4 +27,5 @@ public class DaoTest {
         System.out.println(result);
         System.out.println(JSON.toJSON(entity));
     }
+
 }
