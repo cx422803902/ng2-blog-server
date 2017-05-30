@@ -24,6 +24,9 @@
         <version.slf4j>1.7.25</version.slf4j>
         <version.logback>1.2.3</version.logback>
         <version.fastjson>1.2.32</version.fastjson>
+        <version.validation>1.1.0.Final</version.validation>
+        <version.hibernate>5.4.1.Final</version.hibernate>
+        <version.shiro>1.4.0</version.shiro>
     </properties>
 
     <dependencies>
@@ -103,8 +106,34 @@
             <artifactId>logback-classic</artifactId>
             <version>${version.logback}</version>
         </dependency>
-
         <!--log framework end-->
+
+        <!--using validator start-->
+        <dependency>
+            <groupId>javax.validation</groupId>
+            <artifactId>validation-api</artifactId>
+            <version>${version.validation}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-validator</artifactId>
+            <version>${version.hibernate}</version>
+        </dependency>
+        <!--using validator end-->
+
+        <!--shiro start-->
+        <dependency>
+            <groupId>org.apache.shiro</groupId>
+            <artifactId>shiro-core</artifactId>
+            <version>${version.shiro}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.shiro</groupId>
+            <artifactId>shiro-spring</artifactId>
+            <version>${version.shiro}</version>
+        </dependency>
+
+        <!--shiro end-->
 
         <dependency>
             <groupId>com.alibaba</groupId>

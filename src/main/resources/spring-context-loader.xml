@@ -8,5 +8,5 @@
     <context:component-scan base-package="org.goiot">
         <context:exclude-filter type="regex" expression="org\.goiot\.controller.*"/>
     </context:component-scan>
-    <import resource="classpath:spring/*"/>
+    <import resource="classpath:spring/*.xml"/>
 </beans>

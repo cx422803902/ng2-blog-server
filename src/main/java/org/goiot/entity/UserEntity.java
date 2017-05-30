@@ -2,20 +2,27 @@ package org.goiot.entity;
 
 import org.goiot.core.mybatis.jpa.Column;
 import org.goiot.core.mybatis.jpa.Table;
+import org.goiot.enums.Role;
 
 /**
  * Created by chenxing on 2017/5/29.
  */
-@Table(name = "USER")
+@Table(name = "User")
 public class UserEntity {
     private Long id;
-    @Column(name = "USER_NAME")
+    @Column(name = "UserName")
     private String userName;
-    @Column(name = "PASSWORD")
+    @Column(name = "Role")
+    private Role role;
+    @Column(name = "NickName")
+    private String nickName;
+    @Column(name = "Password")
     private String password;
-    @Column(name = "DESCRIPTION")
+    @Column(name = "Description")
     private String description;
 
+    @Column(name = "RememberMe")
+    private Boolean rememberMe;
     public Long getId() {
         return id;
     }
@@ -32,6 +39,22 @@ public class UserEntity {
         this.userName = userName;
     }
 
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
+    }
+
+    public String getNickName() {
+        return nickName;
+    }
+
+    public void setNickName(String nickName) {
+        this.nickName = nickName;
+    }
+
     public String getPassword() {
         return password;
     }
@@ -46,5 +69,13 @@ public class UserEntity {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public Boolean getRememberMe() {
+        return rememberMe;
+    }
+
+    public void setRememberMe(Boolean rememberMe) {
+        this.rememberMe = rememberMe;
     }
 }
