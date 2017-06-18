@@ -1,13 +1,9 @@
 package org.goiot.controller;
 
-import org.apache.shiro.SecurityUtils;
-import org.apache.shiro.authc.AuthenticationToken;
-import org.apache.shiro.authc.UsernamePasswordToken;
-import org.apache.shiro.subject.Subject;
+import org.goiot.controller.beans.model.UserBean;
 import org.goiot.controller.beans.request.LoginRequest;
 import org.goiot.controller.beans.request.LogoutRequest;
-import org.goiot.controller.beans.response.LoginResponse;
-import org.goiot.dao.UserDao;
+import org.goiot.mapper.UserMapper;
 import org.goiot.entity.UserEntity;
 import org.goiot.utils.JSONUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,7 +22,7 @@ import javax.validation.Valid;
 @Controller
 public class UserController {
     @Autowired
-    private UserDao userDao;
+    private UserMapper userDao;
 
     @ResponseBody
     @RequestMapping(value = "/api/login", method = RequestMethod.POST)
@@ -34,16 +30,10 @@ public class UserController {
         UserEntity userEntity = userDao.selectByUserName(request.getUserName());
         Assert.notNull(userEntity, String.format("user [%s] is not exist", request.getUserName()));
         Assert.isTrue(userEntity.getPassword().equals(request.getPassword()), "password is wrong!");
-
-        AuthenticationToken authenticationToken = new UsernamePasswordToken(userEntity.getUserName(), userEntity.getPassword().toCharArray(), userEntity.getRememberMe());
-        Subject subject = SecurityUtils.getSubject();
-        subject.login(authenticationToken);
-        LoginResponse response = new LoginResponse();
-        response.setId(userEntity.getId());
-        response.setUserName(userEntity.getUserName());
-        response.setNickName(userEntity.getNickName());
-        response.setRememberMe(userEntity.getRememberMe());
-        return JSONUtils.toJSONResponse(response);
+        UserBean userBean = new UserBean.UserBeanBuilder()
+                .appendUserEntity(userEntity)
+                .build();
+        return JSONUtils.toJSONResponse(userBean);
     }
 
     @ResponseBody
@@ -51,8 +41,6 @@ public class UserController {
     public String logout(@RequestBody LogoutRequest request) {
         UserEntity userEntity = userDao.selectByUserName(request.getUserName());
         Assert.notNull(userEntity, String.format("user [%s] is not exist", request.getUserName()));
-        Subject subject = SecurityUtils.getSubject();
-        subject.logout();
         return JSONUtils.toJSONResponse(true);
     }
 

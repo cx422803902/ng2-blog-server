@@ -1,7 +1,7 @@
-package org.goiot.dao;
+package org.goiot.mapper;
 
-import org.goiot.core.mybatis.jpa.Column;
-import org.goiot.core.mybatis.jpa.Table;
+import javax.persistence.Column;
+import javax.persistence.Table;
 
 /**
  * Created by chenxing on 2017/5/29.

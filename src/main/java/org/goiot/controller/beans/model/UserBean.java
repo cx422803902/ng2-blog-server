@@ -1,9 +1,12 @@
-package org.goiot.controller.beans.response;
+package org.goiot.controller.beans.model;
+
+import org.goiot.core.base.Builder;
+import org.goiot.entity.UserEntity;
 
 /**
- * Created by chenxing on 2017/5/30.
+ * Created by chenxing on 2017/6/11.
  */
-public class LoginResponse {
+public class UserBean {
     private Long id;
     private String userName;
     private String nickName;
@@ -39,5 +42,16 @@ public class LoginResponse {
 
     public void setRememberMe(Boolean rememberMe) {
         this.rememberMe = rememberMe;
+    }
+
+    public static class UserBeanBuilder extends Builder<UserBean> {
+        public UserBeanBuilder appendUserEntity(UserEntity userEntity) {
+            UserBean userBean = super.getInstance();
+            userBean.setId(userEntity.getId());
+            userBean.setUserName(userEntity.getUserName());
+            userBean.setNickName(userEntity.getNickName());
+            userBean.setRememberMe(userEntity.getRememberMe());
+            return this;
+        }
     }
 }

@@ -1,12 +1,12 @@
 package org.goiot.controller.beans.request;
 
-import org.hibernate.validator.constraints.NotEmpty;
+import org.hibernate.validator.constraints.NotBlank;
 
 /**
  * Created by chenxing on 2017/5/30.
  */
 public class LogoutRequest {
-    @NotEmpty()
+    @NotBlank
     private String userName;
 
     public String getUserName() {

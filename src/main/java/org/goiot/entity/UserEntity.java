@@ -1,14 +1,17 @@
 package org.goiot.entity;
 
-import org.goiot.core.mybatis.jpa.Column;
-import org.goiot.core.mybatis.jpa.Table;
 import org.goiot.enums.Role;
+
+import javax.persistence.*;
 
 /**
  * Created by chenxing on 2017/5/29.
  */
 @Table(name = "User")
 public class UserEntity {
+    @Id
+    @Column(name = "ID")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column(name = "UserName")
     private String userName;
