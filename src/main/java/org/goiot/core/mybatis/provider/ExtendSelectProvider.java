@@ -36,11 +36,10 @@ public class ExtendSelectProvider extends MapperTemplate {
         Set<EntityColumn> columnList = EntityHelper.getPKColumns(entityClass);
         //当某个列有主键策略时，不需要考虑他的属性是否为空，因为如果为空，一定会根据主键策略给他生成一个值
         for (EntityColumn column : columnList) {
-            sql.append(String.format(" 1=1 ", column.getColumn()))
-                    .append(String.format("<foreach item=\"item\" index=\"index\" collection=\"array\" open=\"AND %s in(\" separator=\",\" close=\")\">\n" +
+            sql.append(String.format(" %s in ", column.getColumn()))
+                    .append("<foreach item=\"item\" index=\"index\" collection=\"array\" open=\"(\" separator=\",\" close=\")\">\n" +
                             "#{item}\n" +
-                            "</foreach>",
-                            column.getColumn()));
+                            "</foreach>");
         }
         sql.append("</where>");
         return sql.toString();

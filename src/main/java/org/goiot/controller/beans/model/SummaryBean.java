@@ -16,7 +16,7 @@ public class SummaryBean {
     private String title;
     private String info;
     private String infoImg;
-    private List tags;
+    private List<String> tags;
     private Date postDate;
 
     public Long getId() {
@@ -51,11 +51,11 @@ public class SummaryBean {
         this.infoImg = infoImg;
     }
 
-    public List getTags() {
+    public List<String> getTags() {
         return tags;
     }
 
-    public void setTags(List tags) {
+    public void setTags(List<String> tags) {
         this.tags = tags;
     }
 

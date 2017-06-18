@@ -67,12 +67,12 @@ public class CommentBean {
     public static class CommentBeanBuilder extends Builder<CommentBean> {
         public CommentBeanBuilder appendCommentEntity(BlogCommentEntity commentEntity) {
             CommentBean commentBean = super.getInstance();
-            commentBean.setId(commentBean.getId());
-            commentBean.setPostId(commentBean.getPostId());
+            commentBean.setId(commentEntity.getId());
+            commentBean.setPostId(commentEntity.getPostId());
             commentBean.setAuthor(commentEntity.getAuthor());
-            commentBean.setContent(commentBean.getContent());
+            commentBean.setContent(commentEntity.getContent());
             commentBean.setPostDate(commentEntity.getPostDate());
-            commentBean.setParentId(commentBean.getParentId());
+            commentBean.setParentId(commentEntity.getParentId());
             return this;
         }
     }
