@@ -32,6 +32,9 @@ public class BlogDetailEntity {
     @Column(name = "PostDate")
     private Date postDate;
 
+    @Column(name = "ViewCount")
+    private Integer viewCount;
+
     public Long getId() {
         return id;
     }
@@ -86,5 +89,13 @@ public class BlogDetailEntity {
 
     public void setPostDate(Date postDate) {
         this.postDate = postDate;
+    }
+
+    public Integer getViewCount() {
+        return viewCount;
+    }
+
+    public void setViewCount(Integer viewCount) {
+        this.viewCount = viewCount;
     }
 }

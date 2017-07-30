@@ -23,8 +23,8 @@ public class BlogCommentEntity {
     @Column(name = "Content")
     private String content;
 
-    @Column(name = "PostDate")
-    private Date postDate;
+    @Column(name = "CreateTime")
+    private Date createTime;
 
     @Column(name = "ParentId")
     private Long parentId;
@@ -61,12 +61,12 @@ public class BlogCommentEntity {
         this.content = content;
     }
 
-    public Date getPostDate() {
-        return postDate;
+    public Date getCreateTime() {
+        return createTime;
     }
 
-    public void setPostDate(Date postDate) {
-        this.postDate = postDate;
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
     }
 
     public Long getParentId() {
