@@ -6,7 +6,7 @@
 
     <groupId>org.goiot</groupId>
     <artifactId>blog</artifactId>
-    <packaging>war</packaging>
+    <packaging>jar</packaging>
     <version>1.0-SNAPSHOT</version>
     <name>ng2-blog-server</name>
 
@@ -174,10 +174,16 @@
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-war-plugin</artifactId>
+                    <artifactId>maven-jar-plugin</artifactId>
                     <version>2.4</version>
                     <configuration>
-                        <webXml>src/main/webapp/WEB-INF/web.xml</webXml>
+                        <archive>
+                            <manifest>
+                                <addClasspath>true</addClasspath>
+                                <classpathPrefix>lib/</classpathPrefix>
+                                <mainClass>org.goiot.boot.BlogBoot</mainClass>
+                            </manifest>
+                        </archive>
                     </configuration>
                 </plugin>
             </plugins>
