@@ -43,7 +43,6 @@ public class BlogBoot extends WebMvcConfigurerAdapter {
 				.contextClass(AnnotationConfigEmbeddedWebApplicationContext.class)
 				.build()
 				.run(args);
-		SpringApplication.run(BlogBoot.class, args);
 	}
 
 	@Bean
